@@ -24,11 +24,11 @@ public class SearchSuggestion extends AbstractComponent {
         PageFactory.initElements(driver, this);
     }
 
-    public void clickSuggestionByIndex(int index){
+    public void clickSuggestionByIndex(int index) {
         this.suggestions.get(index).click();
     }
 
     public boolean isDisplayed() {
-        return false;
+        return this.wait.until(var -> this.suggestions.size() > 5);  //Using lambda
     }
 }
