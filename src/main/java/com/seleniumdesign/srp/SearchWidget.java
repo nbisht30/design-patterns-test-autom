@@ -16,11 +16,8 @@ public class SearchWidget extends AbstractComponent {
     @FindBy(name = "q")
     private WebElement searchBox;
 
-    private WebDriverWait wait; // Explicit Wait
-
     public SearchWidget(final WebDriver driver) { // Initialize any WebDriver
-        this.wait = new WebDriverWait(driver, 30);
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public void enter(String keyword) {
