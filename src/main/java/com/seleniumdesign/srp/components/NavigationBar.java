@@ -1,5 +1,6 @@
-package com.seleniumdesign.srp;
+package com.seleniumdesign.srp.components;
 
+import com.seleniumdesign.srp.base.AbstractComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
