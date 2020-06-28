@@ -26,7 +26,9 @@ public class SearchWidget extends AbstractComponent {
     }
 
     public boolean isDisplayed() {
-        this.wait.until(ExpectedConditions.visibilityOf(this.searchBox));
-        return this.searchBox.isDisplayed();
+        /*this.wait.until(ExpectedConditions.visibilityOf(this.searchBox));
+        return this.searchBox.isDisplayed();*/
+        // Using Java 8
+        return this.wait.until(var -> this.searchBox.isDisplayed());
     }
 }
