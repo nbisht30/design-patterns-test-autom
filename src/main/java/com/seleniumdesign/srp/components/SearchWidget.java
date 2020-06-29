@@ -1,9 +1,12 @@
 package com.seleniumdesign.srp.components;
 
+import com.google.common.util.concurrent.Uninterruptibles;
 import com.seleniumdesign.srp.base.AbstractComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Nikhil Bisht
@@ -20,7 +23,10 @@ public class SearchWidget extends AbstractComponent {
 
     public void enter(String keyword) {
         this.searchBox.clear();
-        this.searchBox.sendKeys(keyword);
+        for (char ch : keyword.toCharArray()) {
+            Uninterruptibles.sleepUninterruptibly(20, TimeUnit.MILLISECONDS);
+            this.searchBox.sendKeys(ch + "");
+        }
     }
 
     public boolean isDisplayed() {
