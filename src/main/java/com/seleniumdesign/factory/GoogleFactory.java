@@ -12,6 +12,11 @@ import java.util.function.Function;
  */
 public class GoogleFactory {
 
+    /*
+    Declare multiple functions and a map to avoid the presence of multiple if-else statements in
+    GooglePage get(LocaleEnum locale, WebDriver driver)
+    in order to maintain cognitive complexity.
+     */
     private static final Function<WebDriver, GooglePage> ENGLISH = (driver) -> new GoogleEnglish(driver);
     private static final Function<WebDriver, GooglePage> HINDI = (driver) -> new GoogleHindi(driver);
     private static final Function<WebDriver, GooglePage> MARATHI = (driver) -> new GoogleMarathi(driver);
@@ -26,10 +31,10 @@ public class GoogleFactory {
 
     /*
     Responsible for providing the instance.
-    As, as user of the instance of any Google page you should
+    As a user of the instance of any Google page you should
     not worry about how that object is created.
     */
-    public static GooglePage get(LocaleEnum locale, WebDriver driver) {
+    public static GooglePage init(LocaleEnum locale, WebDriver driver) {
         return LOCALE_MAP.get(locale).apply(driver);
     }
 

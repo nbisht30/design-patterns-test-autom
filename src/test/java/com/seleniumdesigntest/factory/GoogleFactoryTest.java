@@ -1,9 +1,10 @@
 package com.seleniumdesigntest.factory;
 
-import com.seleniumdesign.factory.GoogleHindi;
-import com.seleniumdesign.factory.GoogleMarathi;
+import com.seleniumdesign.factory.GoogleFactory;
+import com.seleniumdesign.factory.GooglePage;
+import com.seleniumdesign.factory.LocaleEnum;
 import com.seleniumdesigntest.base.BaseTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 /**
@@ -11,18 +12,21 @@ import org.testng.annotations.Test;
  * @date 29-06-2020
  */
 public class GoogleFactoryTest extends BaseTest {
-    private GoogleHindi googleHindi;
-    private GoogleMarathi googleMarathi;
+    private GooglePage googlePage;
 
-    @BeforeTest
-    public void setupPages() {
-        this.googleMarathi = new GoogleMarathi(driver);
+    @Test(dataProvider = "getData")
+    public void googleWorkflow(LocaleEnum locale, String keyword) {
+        this.googlePage = GoogleFactory.init(locale, driver);
+        googlePage.launchSite();
+        googlePage.search(keyword);
     }
 
-    @Test()
-    public void googleWorkflow() {
-        googleMarathi.launchSite();
-        googleMarathi.search("Mumbai");
-        System.out.println(googleMarathi.getResultsCount());
+    @DataProvider
+    public Object[][] getData() {
+        return new Object[][]{
+                {LocaleEnum.ENGLISH, "Selenium"},
+                {LocaleEnum.MARATHI, "Selenium"},
+                {LocaleEnum.HINDI, "Selenium"}
+        };
     }
 }

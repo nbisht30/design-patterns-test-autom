@@ -15,7 +15,7 @@ Note: Here we're not implementing SRP because aim is to just learn the factory p
  * @author Nikhil Bisht
  * @date 30-06-2020
  */
-public class GoogleHindi extends GooglePage {
+class GoogleHindi extends GooglePage {
 
     protected WebDriverWait wait;
 
