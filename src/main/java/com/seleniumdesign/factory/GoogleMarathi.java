@@ -9,13 +9,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 /*
 Note: Here we're not implementing SRP because aim is to just learn the factory pattern.
- */
+*/
 
 /**
  * @author Nikhil Bisht
  * @date 30-06-2020
  */
-public class GoogleMarathi extends GoogleAbstractPage {
+public class GoogleMarathi extends GooglePage {
 
     protected WebDriverWait wait;
 

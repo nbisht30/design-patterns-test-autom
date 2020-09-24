@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
  * @author Nikhil Bisht
  * @date 30-06-2020
  */
-public abstract class GoogleAbstractPage {
+public abstract class GooglePage {
 
     protected WebDriver driver;  // protected so that child classes can access.
 
