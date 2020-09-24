@@ -21,6 +21,7 @@ public class BaseTest {
 //        System.setProperty("webdriver.gecko.driver", "C:\\AutomSoft\\geckodriver.exe");
         System.setProperty("webdriver.chrome.driver", "C:\\AutomSoft\\chromedriver.exe");
         this.driver = new ChromeDriver();
+        this.driver.manage().window().maximize();
     }
 
     @AfterTest

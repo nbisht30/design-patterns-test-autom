@@ -15,24 +15,32 @@ Note: Here we're not implementing SRP because aim is to just learn the factory p
  * @author Nikhil Bisht
  * @date 30-06-2020
  */
-public class GoogleEnglish extends GoogleAbstractPage {
+public class GoogleHindi extends GoogleAbstractPage {
 
-    protected WebDriver driver;
     protected WebDriverWait wait;
 
     @FindBy(name = "q")
     private WebElement searchBox;
 
-    @FindBy(name = "btnk")
+    @FindBy(linkText = "हिन्दी")
+    private WebElement linkText;
+
+    @FindBy(className = "gNO89b")
     private WebElement searchBtn;
 
     @FindBy(css = "div.rc")
     private List<WebElement> results;
 
-    public GoogleEnglish(final WebDriver driver) {
+    public GoogleHindi(final WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 30);
         PageFactory.initElements(driver, this);
+    }
+
+    @Override
+    public void launchSite() {
+        super.launchSite();
+        this.linkText.click();
     }
 
     @Override

@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
  * @author Nikhil Bisht
  * @date 29-06-2020
  */
-public class GoogleTest extends BaseTest {
+public class GoogleSRPTest extends BaseTest {
     private GoogleMainPage googleMainPage;
     private GoogleResultPage googleResultPage;
 

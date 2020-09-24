@@ -22,7 +22,7 @@ public class GoogleMainPage {
     }
 
     public void goTo(){
-        this.driver.get("https://www.google.com");
+        this.driver.get("https://www.google.fr/");
     }
 
     public SearchSuggestion getSearchSuggestion() {
